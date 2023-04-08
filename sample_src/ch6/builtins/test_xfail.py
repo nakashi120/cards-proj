@@ -1,11 +1,10 @@
 import pytest
 import cards
-
 from cards import Card
 from packaging.version import parse
 
 
-@pytest.mark.skipif(
+@pytest.mark.xfail(
     parse(cards.__version__).major < 2,
     reason="Card < comparison not supported in 1.x",
 )
@@ -15,7 +14,15 @@ def test_less_than():
     assert c1 < c2
 
 
-def test_equality():
+@pytest.mark.xfail(reason="XPASS demo")
+def test_xpass():
+    c1 = Card("a task")
+    c2 = Card("a task")
+    assert c1 == c2
+
+
+@pytest.mark.xfail(reason="strict demo", strict=True)
+def test_xfail_strict():
     c1 = Card("a task")
     c2 = Card("a task")
     assert c1 == c2

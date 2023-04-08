@@ -1,14 +1,9 @@
-import pytest
-import cards
-
 from cards import Card
-from packaging.version import parse
+
+import pytest
 
 
-@pytest.mark.skipif(
-    parse(cards.__version__).major < 2,
-    reason="Card < comparison not supported in 1.x",
-)
+@pytest.mark.skip(reason="Card doesn't support < comparison yet")
 def test_less_than():
     c1 = Card("a task")
     c2 = Card("b task")
