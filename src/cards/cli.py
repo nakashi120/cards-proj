@@ -22,7 +22,7 @@ def version():
 
 @app.command()
 def add(
-    summary: List[str], owner: str = typer.Option(None, "-o", "--owner")
+        summary: List[str], owner: str = typer.Option(None, "-o", "--owner")
 ):
     """Add a card to db."""
     summary = " ".join(summary) if summary else None
@@ -42,8 +42,8 @@ def delete(card_id: int):
 
 @app.command("list")
 def list_cards(
-    owner: str = typer.Option(None, "-o", "--owner"),
-    state: str = typer.Option(None, "-s", "--state"),
+        owner: str = typer.Option(None, "-o", "--owner"),
+        state: str = typer.Option(None, "-s", "--state"),
 ):
     """
     List cards in db.
@@ -65,9 +65,9 @@ def list_cards(
 
 @app.command()
 def update(
-    card_id: int,
-    owner: str = typer.Option(None, "-o", "--owner"),
-    summary: List[str] = typer.Option(None, "-s", "--summary"),
+        card_id: int,
+        owner: str = typer.Option(None, "-o", "--owner"),
+        summary: List[str] = typer.Option(None, "-s", "--summary"),
 ):
     """Modify a card in db with given id with new info."""
     summary = " ".join(summary) if summary else None
